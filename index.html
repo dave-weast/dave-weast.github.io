@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0d0c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="Connect Spotify and rank your top songs head-to-head." />
+  <title>TopTrack — Find your favorite song</title>
+  <link rel="preconnect" href="https://i.scdn.co" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="site-header">
+    <button class="brand" id="brandButton" aria-label="TopTrack home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="img"><path d="M7 21.5V8.8c0-.8.9-1.3 1.6-.9l15.2 7.2c.8.4.8 1.5 0 1.9L8.6 24.2c-.7.3-1.6-.2-1.6-1v-1.7Z"/></svg>
+      </span>
+      <span>TopTrack</span>
+    </button>
+    <div class="header-actions">
+      <span class="session-user hidden" id="sessionUser"></span>
+      <button class="ghost-button hidden" id="resetButton">Start over</button>
+    </div>
+  </header>
+
+  <main id="app" aria-live="polite"></main>
+  <div class="toast-region" id="toastRegion" aria-live="assertive"></div>
+
+  <dialog class="setup-dialog" id="setupDialog">
+    <form method="dialog" class="dialog-card" id="setupForm">
+      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+      <p class="eyebrow">One-time setup</p>
+      <h2>Connect your Spotify app</h2>
+      <p class="muted">Paste the Client ID from your Spotify Developer Dashboard. It stays in this browser and is never sent anywhere except Spotify.</p>
+      <label class="field-label" for="clientIdInput">Spotify Client ID</label>
+      <input class="text-input" id="clientIdInput" name="clientId" autocomplete="off" spellcheck="false" placeholder="Paste Client ID" required />
+      <div class="redirect-box">
+        <span>Register this redirect URI in Spotify:</span>
+        <code id="redirectUriText"></code>
+        <button type="button" class="tiny-button" id="copyRedirectButton">Copy</button>
+      </div>
+      <button class="primary-button full-width" type="submit">Save and connect</button>
+      <p class="dialog-help">Spotify login requires this exact website address to be registered in your Spotify app.</p>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
