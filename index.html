@@ -33,7 +33,7 @@
 
   <dialog class="setup-dialog" id="setupDialog">
     <form method="dialog" class="dialog-card" id="setupForm">
-      <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+      <button type="button" class="dialog-close" aria-label="Close" onclick="this.closest('dialog').close()">×</button>
       <p class="eyebrow">One-time setup</p>
       <h2>Connect your Spotify app</h2>
       <p class="muted">Paste the Client ID from your Spotify Developer Dashboard. It stays in this browser and is never sent anywhere except Spotify.</p>
